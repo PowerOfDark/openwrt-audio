@@ -82,6 +82,10 @@ define Package/jack2/install
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/* $(1)/usr/lib/
 	$(INSTALL_DIR) $(1)/usr/share
 	$(CP) $(PKG_INSTALL_DIR)/usr/share/* $(1)/usr/share/
+	ifeq ($(CONFIG_JACK2_USE_DBUS),y)
+	$(INSTALL_DIR) $(1)/usr/share/dbus-1
+	$(CP) $(PKG_INSTALL_DIR)/usr/share/dbus-1/* $(1)/usr/share/dbus-1/
+	endif
 endef
 
 $(eval $(call BuildPackage,jack2))
