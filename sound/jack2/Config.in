@@ -1,0 +1,7 @@
+menu "Configuration"
+	depends on PACKAGE_jack2
+
+	config JACK2_USE_DBUS
+		bool "dbus enabled"
+		default n
+endmenu

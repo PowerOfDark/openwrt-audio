@@ -25,7 +25,7 @@ define Package/jack1
   CATEGORY:=Sound
   DEPENDS:=+alsa-lib +libavahi-client +libreadline +libdb47 +libsndfile +libsamplerate
   TITLE:=jack1 audio server
-  URL:=http://www.fftw.org/
+  URL:=https://www.jackaudio.org/
   MAINTAINER:=Przemysław Rozwałka
 endef
 
