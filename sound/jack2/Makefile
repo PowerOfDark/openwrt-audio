@@ -82,9 +82,11 @@ define Package/jack2/install
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/* $(1)/usr/lib/
 	$(INSTALL_DIR) $(1)/usr/share
 	$(CP) $(PKG_INSTALL_DIR)/usr/share/* $(1)/usr/share/
+	$(INSTALL_DIR) $(1)/etc/init.d
+	$(INSTALL_BIN) ./files/jackd $(1)/etc/init.d/jackd
 ifeq ($(CONFIG_JACK2_USE_DBUS),y)
-	$(INSTALL_DIR) $(1)/usr/share/dbus-1
-	$(CP) $(PKG_INSTALL_DIR)/usr/share/dbus-1/* $(1)/usr/share/dbus-1/
+	$(INSTALL_DIR) $(1)/usr/share/dbus-1/services
+	$(CP) $(PKG_INSTALL_DIR)/usr/share/dbus-1/services/* $(1)/usr/share/dbus-1/services/
 endif
 endef
 

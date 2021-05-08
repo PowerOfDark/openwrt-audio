@@ -1,0 +1,25 @@
+#!/bin/sh /etc/rc.common
+
+START=90
+
+boot() {
+
+  echo "Configuring network using dhcp"
+  uci delete network.lan
+  uci set network.lan=interface
+  uci set network.lan.ifname=eth0
+  uci set network.lan.proto=dhcp
+  uci commit
+  rm /etc/rc.d/S19dnsmasq
+  /etc/init.d/network restart
+
+}
+
+start() {
+  echo "Starting"
+}
+
+shutdown() {
+  echo "Shutting down"
+}
+
